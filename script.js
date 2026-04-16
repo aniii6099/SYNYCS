@@ -178,29 +178,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hero video — fade in only when actually playing
+    // Hero video autoplay
     const heroVid = document.getElementById('hero-vid');
     if (heroVid) {
         heroVid.muted = true;
         heroVid.volume = 0;
-
-        function startVideo() {
-            heroVid.muted = true;
-            heroVid.play().then(() => {
-                heroVid.classList.add('playing');
-            }).catch(() => {});
-        }
-
-        // Play as soon as enough data is available
-        heroVid.addEventListener('canplay', startVideo, { once: true });
-
-        // Also mark as playing if it's already going
-        heroVid.addEventListener('playing', () => {
-            heroVid.classList.add('playing');
-        });
-
-        // Try immediately (may already be ready)
-        startVideo();
+        heroVid.play().catch(() => {});
     }
 
     // About section carousel
