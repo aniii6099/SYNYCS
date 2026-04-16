@@ -1207,16 +1207,21 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Responsive Design */
+/* ── Responsive Design ── */
+
+/* Tablet */
 @media (max-width: 992px) {
-    .hero-section {
-        padding-top: 0;
-        min-height: 100vh;
-        padding-bottom: 3rem;
+    .main-header {
+        padding: 1rem 4%;
+    }
+
+    .hero-content {
+        top: 8%;
+        padding: 0 6%;
     }
 
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
     }
 
     .section-shell {
@@ -1228,39 +1233,9 @@ body {
     }
 
     .about-features {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .contact-card {
-        min-height: 320px;
-    }
-
-    .contact-icon {
-        margin-bottom: 3.5rem;
-    }
-
-    .contact-cta-panel {
-        margin-top: 2rem;
-        padding: 1.25rem 1.2rem;
-    }
-
-    .contact-section {
-        padding: 5rem 4% 4rem;
-    }
-
-    .tech-section {
-        padding: 5rem 4% 4rem;
-    }
-
-    .tech-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    
     .vision-shell {
         grid-template-columns: 1fr;
     }
@@ -1280,29 +1255,113 @@ body {
     .careers-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .tech-section {
+        padding: 4rem 4%;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-section {
+        padding: 4rem 4%;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .contact-card {
+        min-height: auto;
+    }
+
+    .contact-icon {
+        margin-bottom: 2rem;
+    }
+
+    .contact-cta-panel {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+
+    .inquiry-form {
+        grid-template-columns: 1fr;
+    }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
+    /* Header — keep logo + nav + login on one compact row */
     .main-header {
-        flex-direction: column;
-        gap: 1.5rem;
+        flex-wrap: wrap;
+        padding: 0.75rem 4%;
+        gap: 0.5rem;
     }
-    
+
+    .logo-container {
+        flex: 0 0 auto;
+    }
+
     .brand-logo {
-        height: 35px;
+        height: 42px;
+    }
+
+    .auth-container {
+        flex: 0 0 auto;
+    }
+
+    .login-btn {
+        padding: 8px 16px;
+        font-size: 0.88rem;
+    }
+
+    .pill-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding: 5px;
+    }
+
+    .nav-item {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+
+    /* Hero */
+    .hero-content {
+        top: 14%;
+        padding: 0 5%;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        line-height: 1.15;
+    }
+
+    .hero-story {
+        font-size: 1rem;
+        margin-bottom: 1.75rem;
     }
 
     .hero-actions {
         flex-direction: column;
         align-items: center;
+        gap: 0.75rem;
     }
 
+    .hero-btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+        font-size: 0.92rem;
+        min-height: 48px;
+    }
+
+    /* About */
     .about-section {
-        padding: 4.5rem 4% 4rem;
+        padding: 3.5rem 5% 3rem;
     }
 
     .about-features {
@@ -1314,8 +1373,74 @@ body {
     }
 
     .feature-card {
-        min-height: 160px;
+        min-height: auto;
         padding: 1.25rem;
+    }
+
+    /* Vision */
+    .vision-section {
+        padding: 3rem 5%;
+    }
+
+    /* Values */
+    .values-section {
+        padding: 3rem 5%;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Tech */
+    .tech-section {
+        padding: 3rem 5%;
+    }
+
+    .tech-section .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .tech-card {
+        min-height: 100px;
+        padding: 0.85rem;
+    }
+
+    /* Projects */
+    .projects-section {
+        padding: 3rem 5%;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Why */
+    .why-section {
+        padding: 3rem 5%;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Careers */
+    .careers-section {
+        padding: 3rem 5%;
+    }
+
+    .careers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact */
+    .contact-section {
+        padding: 3rem 5%;
     }
 
     .contact-subtitle {
@@ -1323,77 +1448,66 @@ body {
     }
 
     .contact-card {
-        min-height: 300px;
-        padding: 1.35rem;
+        min-height: auto;
+        padding: 1.5rem;
     }
 
     .contact-card h3 {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
 
     .contact-card p,
     .contact-card a,
     .contact-note {
-        font-size: 0.98rem;
+        font-size: 0.95rem;
     }
 
-    .tech-section .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
+    .contact-cta-panel {
+        padding: 1.25rem;
     }
 
-    .tech-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.85rem;
-    }
-
-    .tech-card {
-        min-height: 106px;
-        padding: 0.85rem;
-    }
-
-    .tech-mark {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-    }
-
-    .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects-grid {
+    .inquiry-form {
         grid-template-columns: 1fr;
     }
 
+    .inquiry-submit {
+        font-size: 0.95rem;
+        padding: 12px 24px;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-card {
+        min-height: 90px;
+    }
+
+    .careers-grid,
+    .values-grid,
+    .projects-grid,
     .why-grid {
         grid-template-columns: 1fr;
     }
 
-    .careers-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .about-tags {
+        gap: 0.5rem;
     }
 
-    .hero-cta-group {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-@media (max-width: 480px) {
-    .tech-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .tech-card {
-        min-height: 96px;
-    }
-
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .careers-grid {
-        grid-template-columns: 1fr;
+    .about-tags span {
+        font-size: 0.85rem;
+        padding: 0.65rem 1rem;
     }
 }
