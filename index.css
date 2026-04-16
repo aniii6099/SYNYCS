@@ -165,10 +165,10 @@ body {
 /* Hero Section */
 .hero-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 0 5% 2.25rem;
     min-height: 100vh;
+    height: 100vh;
     position: relative;
     overflow: hidden;
     isolation: isolate;
@@ -177,13 +177,10 @@ body {
 .hero-content {
     width: 100%;
     max-width: 1440px;
-    position: absolute;
-    top: 6%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     z-index: 3;
     text-align: center;
-    padding: 0 5%;
+    padding: 7rem 5% 0;
 }
 
 .badge {
@@ -667,15 +664,16 @@ body {
 }
 
 .partners-logo-item {
-    flex: 0 0 auto;
+    flex: 0 0 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 120px;
+    width: 120px;
     height: 48px;
     opacity: 0.75;
     transition: opacity 0.25s;
     position: relative;
+    flex-shrink: 0;
 }
 
 .partners-logo-item:hover {
@@ -1341,8 +1339,7 @@ body {
     }
 
     .hero-content {
-        top: 8%;
-        padding: 0 6%;
+        padding: 6rem 6% 0;
     }
 
     .hero-title {
@@ -1456,8 +1453,7 @@ body {
 
     /* Hero */
     .hero-content {
-        top: 14%;
-        padding: 0 5%;
+        padding: 5rem 5% 0;
     }
 
     .hero-title {
