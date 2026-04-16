@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Reset form
                 contactForm.reset();
-                
+
                 // Reset button after 3 seconds
                 setTimeout(() => {
                     btn.textContent = originalText;
@@ -176,5 +176,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             );
         });
+    }
+
+    // About section carousel
+    const track = document.getElementById('carousel-track');
+    const dotsContainer = document.getElementById('carousel-dots');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    if (track && dotsContainer && prevBtn && nextBtn) {
+        const slides = track.querySelectorAll('.carousel-slide');
+        let current = 0;
+        let autoPlayTimer;
+
+        // Build dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        function updateDots() {
+            dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === current);
+            });
+        }
+
+        function goTo(index) {
+            current = (index + slides.length) % slides.length;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            updateDots();
+        }
+
+        function startAutoPlay() {
+            autoPlayTimer = setInterval(() => goTo(current + 1), 4000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayTimer);
+        }
+
+        prevBtn.addEventListener('click', () => { stopAutoPlay(); goTo(current - 1); startAutoPlay(); });
+        nextBtn.addEventListener('click', () => { stopAutoPlay(); goTo(current + 1); startAutoPlay(); });
+
+        startAutoPlay();
     }
 });

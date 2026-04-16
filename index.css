@@ -324,7 +324,7 @@ body {
 }
 
 .about-title {
-    max-width: 12ch;
+    max-width: 100%;
     margin-bottom: 1.35rem;
 }
 
@@ -351,6 +351,99 @@ body {
     color: #f8fafc;
     font-size: 0.95rem;
     font-weight: 500;
+}
+
+/* About Carousel */
+.about-carousel {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1.25rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: rgba(10, 10, 20, 0.6);
+}
+
+.carousel-btn {
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    line-height: 1;
+}
+
+.carousel-btn:hover {
+    background: rgba(99, 102, 241, 0.5);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    background: #6366f1;
+    transform: scale(1.3);
 }
 
 .about-features {
@@ -731,7 +824,7 @@ body {
 .vision-text {
     margin-top: 1rem;
     color: var(--text-secondary);
-    font-size: 1.08rem;
+    font-size: 1.35rem;
     line-height: 1.85;
 }
 
