@@ -611,7 +611,7 @@ body {
 .partners-marquee {
     position: relative;
     overflow: hidden;
-    height: 80px;
+    height: 90px;
 }
 
 .partners-marquee {
@@ -642,13 +642,13 @@ body {
 }
 
 .partners-logo-item {
-    flex: 0 0 140px;
+    flex: 0 0 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
-    height: 64px;
-    opacity: 0.85;
+    width: 160px;
+    height: 72px;
+    opacity: 0.9;
     transition: opacity 0.25s;
     position: relative;
     flex-shrink: 0;
@@ -659,8 +659,8 @@ body {
 }
 
 .partners-logo-item img {
-    max-height: 54px;
-    max-width: 130px;
+    max-height: 64px;
+    max-width: 150px;
     object-fit: contain;
     width: auto;
     height: auto;
