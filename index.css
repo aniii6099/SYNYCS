@@ -69,9 +69,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 90;
-    background: transparent;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(10, 10, 12, 0.6);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .logo-container {
