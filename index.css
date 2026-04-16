@@ -166,7 +166,7 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 0.75rem 5% 3.25rem;
+    padding: 0 5% 3rem;
     min-height: calc(100vh - 110px);
     position: relative;
     overflow: hidden;
@@ -176,7 +176,7 @@ body {
 .hero-content {
     width: min(620px, 100%);
     position: absolute;
-    top: 13%;
+    top: 9%;
     left: 5%;
     z-index: 3;
     text-align: left;
@@ -426,7 +426,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 46%;
+    top: 40%;
     transform: translateY(-50%);
     height: min(62vh, 620px);
     width: min(100%, 1600px);
@@ -1209,14 +1209,14 @@ body {
     }
 
     .hero-content {
-        top: 11%;
+        top: 7%;
         left: 5%;
         width: min(560px, 90%);
     }
 
     .hero-video-panel {
         height: 42vh;
-        top: 52%;
+        top: 46%;
     }
     
     .hero-title {
@@ -1303,7 +1303,7 @@ body {
     }
 
     .hero-content {
-        top: 10%;
+        top: 6%;
         left: 5%;
         width: 90%;
     }
