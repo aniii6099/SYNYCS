@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.emailjs) {
+        emailjs.init("gs7FzZHndq0S7Rga4");
+    }
+
     // 1. Pill Navigation Slider Logic
     const navItems = document.querySelectorAll('.nav-item');
     const navSlider = document.getElementById('nav-slider');
@@ -36,22 +40,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Form Submission Mock
-    const contactForm = document.getElementById('contactForm');
+    // 2. EmailJS Form Submission
+    const contactForm = document.getElementById('contact-form');
     if(contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = document.getElementById('submitBtn');
+            const btn = document.getElementById('contact-submit');
             const text = btn.querySelector('.btn-text');
             const loader = btn.querySelector('.btn-loader');
             
             // Show loading state
             text.style.display = 'none';
-            // ensure flex layout overrides the display block default
             loader.style.display = 'block'; 
             
-            // Mock API Call
-            setTimeout(() => {
+            emailjs.sendForm(
+                "service_0ueeya9",
+                "template_18tf0jm",
+                this
+            ).then(
+                function() {
                 loader.style.display = 'none';
                 text.style.display = 'block';
                 text.textContent = 'Success!';
@@ -62,10 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Reset button after 3 seconds
                 setTimeout(() => {
-                    text.textContent = 'Send Message';
+                    text.textContent = 'Send';
                     btn.style.background = 'var(--gradient-accent)';
                 }, 3000);
-            }, 1500);
+                },
+                function(error) {
+                    loader.style.display = 'none';
+                    text.style.display = 'block';
+                    alert("Failed: " + JSON.stringify(error));
+                }
+            );
         });
     }
 });
