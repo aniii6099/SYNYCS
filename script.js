@@ -178,15 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hero video — single src, play as soon as any data is ready
+    // Hero video — set src then play() triggers load + playback in one shot
     const heroVid = document.getElementById('hero-vid');
     if (heroVid) {
         heroVid.muted = true;
         heroVid.volume = 0;
         heroVid.src = 'InShot_20260415_152107217.mp4';
-        heroVid.addEventListener('canplay', () => {
-            heroVid.play().catch(() => {});
-        }, { once: true });
+        heroVid.play().catch(() => {});
     }
 
     // About section carousel
