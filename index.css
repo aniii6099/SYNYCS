@@ -216,6 +216,13 @@ body {
     margin-bottom: 2.5rem;
 }
 
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    align-items: flex-start;
+}
+
 .hero-btn {
     display: inline-flex;
     align-items: center;
@@ -253,24 +260,6 @@ body {
 .hero-btn-secondary:hover {
     border-color: rgba(255, 255, 255, 0.22);
     filter: brightness(1.04);
-}
-
-.hero-frame-actions {
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    bottom: 2.25rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: center;
-    z-index: 4;
-    pointer-events: none;
-}
-
-.hero-frame-actions .hero-btn {
-    pointer-events: auto;
-    min-width: 260px;
 }
 
 .hero-story strong {
@@ -1232,19 +1221,6 @@ body {
     
     .hero-title {
         font-size: 2.1rem;
-    }
-
-    .hero-frame-actions {
-        left: 5%;
-        right: 5%;
-        bottom: 1.25rem;
-        flex-direction: column-reverse;
-        align-items: stretch;
-    }
-
-    .hero-frame-actions .hero-btn {
-        min-width: 0;
-        width: 100%;
     }
 
     .section-shell {
