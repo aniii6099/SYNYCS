@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emailjs.init("gs7FzZHndq0S7Rga4");
     }
 
-    // 1. Pill Navigation Slider Logic
+    // 1. Navigation Slider Logic
     const navItems = document.querySelectorAll('.nav-item');
     const navSlider = document.getElementById('nav-slider');
     
