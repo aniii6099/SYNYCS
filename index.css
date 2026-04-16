@@ -69,6 +69,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 90;
+    background: transparent;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
@@ -166,7 +167,7 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     padding: 0 5% 2.25rem;
-    min-height: calc(100vh - 110px);
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
     isolation: isolate;
@@ -422,16 +423,16 @@ body {
 }
 
 .hero-video-panel {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
-    top: 29%;
-    transform: translateY(-50%);
-    height: min(62vh, 620px);
-    width: min(100%, 1600px);
-    margin: 0 auto;
-    padding: 0 2.5vw;
-    z-index: 1;
+    top: 0;
+    transform: none;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -440,8 +441,8 @@ body {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
-    border-radius: 28px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    border: none;
     background: #050507;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     filter: saturate(1.05) contrast(1.05) brightness(0.82);
@@ -450,9 +451,13 @@ body {
 .hero-video-overlay {
     position: absolute;
     inset: 0;
-    border-radius: 28px;
+    border-radius: 0;
     background: linear-gradient(90deg, rgba(10, 10, 12, 0.78) 0%, rgba(10, 10, 12, 0.45) 34%, rgba(10, 10, 12, 0.18) 68%, rgba(10, 10, 12, 0.7) 100%);
     z-index: 2;
+}
+
+.hero-content {
+    z-index: 3;
 }
 
 /* Technologies Section */
@@ -1202,20 +1207,20 @@ body {
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero-section {
-        padding-top: 3rem;
-        min-height: 90vh;
-        padding-bottom: 4rem;
+        padding-top: 0;
+        min-height: 100vh;
+        padding-bottom: 3rem;
     }
 
     .hero-content {
-        top: 4%;
+        top: 5%;
         left: 5%;
         width: min(560px, 90%);
     }
 
     .hero-video-panel {
-        height: 42vh;
-        top: 34%;
+        height: 100vh;
+        top: 0;
     }
     
     .hero-title {
@@ -1296,13 +1301,13 @@ body {
     }
 
     .hero-video-panel {
-        height: 300px;
-        top: 58%;
-        padding: 0 4vw;
+        height: 100vh;
+        top: 0;
+        padding: 0;
     }
 
     .hero-content {
-        top: 4%;
+        top: 5%;
         left: 5%;
         width: 90%;
     }
