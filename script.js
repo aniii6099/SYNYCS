@@ -178,37 +178,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Chrome-proof hero video autoplay
+    // Hero video autoplay — Chrome desktop fix
     const heroVid = document.getElementById('hero-vid');
     if (heroVid) {
-        // Set muted both as attribute and JS property — Chrome needs both
-        heroVid.setAttribute('muted', '');
         heroVid.muted = true;
         heroVid.volume = 0;
 
-        function attemptPlay() {
-            heroVid.muted = true;
-            heroVid.load();
-            heroVid.play().catch(() => {});
-        }
+        // Use IntersectionObserver to play when visible (Chrome desktop requires this)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroVid.muted = true;
+                    heroVid.play().catch(() => {});
+                } else {
+                    heroVid.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(heroVid);
 
-        // Try immediately
-        attemptPlay();
+        // Also try immediately in case already visible
+        heroVid.play().catch(() => {});
 
-        // Also try once metadata is loaded
-        heroVid.addEventListener('loadedmetadata', attemptPlay, { once: true });
-
-        // Fallback: play on first user gesture if still paused
-        function onUserGesture() {
+        // Show tap-to-play overlay only if still paused after 800ms
+        setTimeout(() => {
             if (heroVid.paused) {
-                heroVid.muted = true;
-                heroVid.play().catch(() => {});
+                const overlay = document.createElement('div');
+                overlay.id = 'vid-play-overlay';
+                overlay.innerHTML = '<div style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer"><svg viewBox="0 0 24 24" fill="white" width="28" height="28"><polygon points="6,3 20,12 6,21"/></svg></div>';
+                overlay.style.cssText = 'position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;';
+                heroVid.parentElement.appendChild(overlay);
+                overlay.addEventListener('click', () => {
+                    heroVid.muted = true;
+                    heroVid.play().then(() => overlay.remove()).catch(() => {});
+                }, { once: true });
             }
-        }
-        document.addEventListener('click', onUserGesture, { once: true });
-        document.addEventListener('touchstart', onUserGesture, { once: true });
-        document.addEventListener('keydown', onUserGesture, { once: true });
-        document.addEventListener('scroll', onUserGesture, { once: true });
+        }, 800);
     }
 
     // About section carousel
