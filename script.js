@@ -41,17 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. EmailJS Form Submission
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById('inquiry-form');
     if(contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = document.getElementById('contact-submit');
-            const text = btn.querySelector('.btn-text');
-            const loader = btn.querySelector('.btn-loader');
+            const btn = document.getElementById('inquiry-submit');
+            const originalText = btn.textContent;
             
             // Show loading state
-            text.style.display = 'none';
-            loader.style.display = 'block'; 
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
             
             emailjs.sendForm(
                 "service_0ueeya9",
@@ -59,9 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this
             ).then(
                 function() {
-                loader.style.display = 'none';
-                text.style.display = 'block';
-                text.textContent = 'Success!';
+                btn.textContent = 'Success!';
                 btn.style.background = '#10b981'; // Green success color
                 
                 // Reset form
@@ -69,13 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Reset button after 3 seconds
                 setTimeout(() => {
-                    text.textContent = 'Send';
+                    btn.textContent = originalText;
                     btn.style.background = 'var(--gradient-accent)';
+                    btn.disabled = false;
                 }, 3000);
                 },
                 function(error) {
-                    loader.style.display = 'none';
-                    text.style.display = 'block';
+                    btn.textContent = originalText;
+                    btn.disabled = false;
                     alert("Failed: " + JSON.stringify(error));
                 }
             );

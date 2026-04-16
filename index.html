@@ -170,31 +170,36 @@
                     <h3>Ready to leap into the Quantum Era?</h3>
                     <p>Admissions are open for our exclusive AI Masters program. Reach out to our team of experts to see how we can fast-track your career in Artificial Intelligence.</p>
                 </div>
-            </div>
-
-            <div class="contact-form-panel">
-                <form id="contact-form" class="contact-form">
-                    <div class="input-grid">
-                        <div class="input-group">
-                            <label for="user_name">Name</label>
-                            <input type="text" id="user_name" name="user_name" placeholder="Name" required>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="user_email">Email</label>
-                            <input type="email" id="user_email" name="user_email" placeholder="Email" required>
-                        </div>
+                <form class="inquiry-form" id="inquiry-form">
+                    <div class="inquiry-group">
+                        <label for="inq-name">Full Name</label>
+                        <input type="text" id="inq-name" name="user_name" placeholder="Your full name" required>
                     </div>
-
-                    <div class="input-group">
-                        <label for="user_phone">Phone</label>
-                        <input type="text" id="user_phone" name="user_phone" placeholder="Phone" required>
+                    <div class="inquiry-group">
+                        <label for="inq-email">Email Address</label>
+                        <input type="email" id="inq-email" name="user_email" placeholder="you@email.com" required>
                     </div>
-
-                    <button type="submit" class="submit-btn" id="contact-submit">
-                        <span class="btn-text">Send</span>
-                        <span class="btn-loader" aria-hidden="true"></span>
-                    </button>
+                    <div class="inquiry-group">
+                        <label for="inq-phone">Phone Number</label>
+                        <input type="tel" id="inq-phone" name="user_phone" placeholder="+91 00000 00000">
+                    </div>
+                    <div class="inquiry-group">
+                        <label for="inq-program">Program of Interest</label>
+                        <select id="inq-program" name="user_program" required>
+                            <option value="" selected disabled>Select a program</option>
+                            <option value="AI Engineer Program">AI Engineer Program</option>
+                            <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                            <option value="Data Scientist Track">Data Scientist Track</option>
+                            <option value="Free AI Workshop">Free AI Workshop</option>
+                        </select>
+                    </div>
+                    <div class="inquiry-group inquiry-group-full">
+                        <label for="inq-message">Message (Optional)</label>
+                        <textarea id="inq-message" name="user_message" placeholder="Any questions or details you'd like to share..."></textarea>
+                    </div>
+                    <div class="inquiry-group inquiry-group-full">
+                        <button type="submit" class="inquiry-submit" id="inquiry-submit">Apply Now / Send Inquiry</button>
+                    </div>
                 </form>
             </div>
         </section>
