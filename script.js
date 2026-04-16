@@ -3,6 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
         emailjs.init("gs7FzZHndq0S7Rga4");
     }
 
+    // Hero video autoplay fallback (ensures Chrome plays the muted background video)
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+        heroVideo.muted = true;
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // Autoplay blocked — retry on first user interaction
+                const resumePlay = () => {
+                    heroVideo.play().catch(() => {});
+                    document.removeEventListener('click', resumePlay);
+                    document.removeEventListener('touchstart', resumePlay);
+                    document.removeEventListener('keydown', resumePlay);
+                };
+                document.addEventListener('click', resumePlay, { once: true });
+                document.addEventListener('touchstart', resumePlay, { once: true });
+                document.addEventListener('keydown', resumePlay, { once: true });
+            });
+        }
+    }
+
     // 1. Pill Navigation Slider Logic
     const navItems = document.querySelectorAll('.nav-item');
     const navSlider = document.getElementById('nav-slider');
