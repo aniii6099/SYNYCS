@@ -39,7 +39,7 @@
         <!-- Hero Section -->
         <section class="hero-section" id="home">
             <div class="hero-video-panel" aria-hidden="true">
-                <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+                <video class="hero-video" id="hero-vid" autoplay muted loop playsinline preload="auto">
                     <source src="InShot_20260415_152107217.mp4" type="video/mp4">
                 </video>
                 <div class="hero-video-overlay"></div>
@@ -141,27 +141,34 @@
                     </div>
                 </div>
 
-                <div class="about-features" aria-label="Program highlights">
-                    <article class="feature-card feature-card-warm">
-                        <div class="feature-icon" aria-hidden="true">FA</div>
-                        <h3>Expert Faculty</h3>
-                        <p>Learn from industry veterans and AI researchers.</p>
-                    </article>
-                    <article class="feature-card feature-card-rose">
-                        <div class="feature-icon" aria-hidden="true">HL</div>
-                        <h3>Hands-on Labs</h3>
-                        <p>State-of-the-art GPU clusters and AI tools.</p>
-                    </article>
-                    <article class="feature-card feature-card-gold">
-                        <div class="feature-icon" aria-hidden="true">AC</div>
-                        <h3>AI Community</h3>
-                        <p>Network with peers and industry leaders.</p>
-                    </article>
-                    <article class="feature-card feature-card-plum">
-                        <div class="feature-icon" aria-hidden="true">JG</div>
-                        <h3>Job Guarantee</h3>
-                        <p>Career placement within 6 months.</p>
-                    </article>
+                <div class="about-carousel" aria-label="AI program highlights">
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="AI neural network visualization">
+                            <div class="carousel-caption">Neural Networks & Deep Learning</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80" alt="Robot and AI technology">
+                            <div class="carousel-caption">Robotics & Intelligent Systems</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Data science and analytics">
+                            <div class="carousel-caption">Data Science & Analytics</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Machine learning code">
+                            <div class="carousel-caption">Machine Learning Engineering</div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1607798748738-b15c40d33d57?w=600&q=80" alt="Natural language processing">
+                            <div class="carousel-caption">Natural Language Processing</div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" id="carousel-prev" aria-label="Previous">&#8592;</button>
+                        <div class="carousel-dots" id="carousel-dots"></div>
+                        <button class="carousel-btn" id="carousel-next" aria-label="Next">&#8594;</button>
+                    </div>
                 </div>
             </div>
         </section>

@@ -178,6 +178,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Force hero video autoplay (Chrome fallback)
+    const heroVid = document.getElementById('hero-vid');
+    if (heroVid) {
+        heroVid.muted = true;
+        heroVid.play().catch(() => {
+            document.addEventListener('click', () => heroVid.play(), { once: true });
+            document.addEventListener('touchstart', () => heroVid.play(), { once: true });
+        });
+    }
+
     // About section carousel
     const track = document.getElementById('carousel-track');
     const dotsContainer = document.getElementById('carousel-dots');
