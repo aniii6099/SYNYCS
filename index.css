@@ -593,19 +593,10 @@ body {
 /* Partners Banner */
 .partners-section {
     padding: 2.5rem 0;
-    background: linear-gradient(180deg, #0a0c14, #0d0f1a);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: #ffffff;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
     overflow: hidden;
-}
-
-.partners-eyebrow {
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin: 0 0 1.5rem;
 }
 
 .partners-marquee-shell {
@@ -633,12 +624,12 @@ body {
 
 .partners-marquee::before {
     left: 0;
-    background: linear-gradient(90deg, #0a0c14, transparent);
+    background: linear-gradient(90deg, #ffffff, transparent);
 }
 
 .partners-marquee::after {
     right: 0;
-    background: linear-gradient(270deg, #0a0c14, transparent);
+    background: linear-gradient(270deg, #ffffff, transparent);
 }
 
 .partners-track {
@@ -686,7 +677,6 @@ body {
     object-fit: contain;
     width: auto;
     height: auto;
-    filter: brightness(0) invert(1);
 }
 
 .partners-fallback {
