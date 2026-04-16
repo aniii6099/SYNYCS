@@ -178,14 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hero video — set src once via JS, single load, single play
+    // Hero video — single src, play as soon as any data is ready
     const heroVid = document.getElementById('hero-vid');
     if (heroVid) {
         heroVid.muted = true;
         heroVid.volume = 0;
         heroVid.src = 'InShot_20260415_152107217.mp4';
-        heroVid.load();
-        heroVid.addEventListener('canplaythrough', () => {
+        heroVid.addEventListener('canplay', () => {
             heroVid.play().catch(() => {});
         }, { once: true });
     }
