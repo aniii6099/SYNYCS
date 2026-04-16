@@ -216,6 +216,52 @@ body {
     margin-bottom: 2.5rem;
 }
 
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.95rem;
+    align-items: center;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0.95rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-family: var(--font-heading);
+    font-size: 0.96rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+}
+
+.hero-btn-primary {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: 0 12px 28px rgba(99, 102, 241, 0.28);
+}
+
+.hero-btn-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.14);
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+}
+
+.hero-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    filter: brightness(1.04);
+}
+
 .hero-story strong {
     color: var(--text-primary);
     font-weight: 600;
@@ -1175,6 +1221,15 @@ body {
     
     .hero-title {
         font-size: 2.1rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-btn {
+        width: 100%;
     }
 
     .section-shell {
