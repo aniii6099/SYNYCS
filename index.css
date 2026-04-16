@@ -614,25 +614,9 @@ body {
     height: 80px;
 }
 
-.partners-marquee::before,
-.partners-marquee::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 120px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.partners-marquee::before {
-    left: 0;
-    background: linear-gradient(90deg, #ffffff, transparent);
-}
-
-.partners-marquee::after {
-    right: 0;
-    background: linear-gradient(270deg, #ffffff, transparent);
+.partners-marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 .partners-track {
