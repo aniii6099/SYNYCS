@@ -178,42 +178,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hero video autoplay — Chrome desktop fix
+    // Hero video — fade in only when actually playing
     const heroVid = document.getElementById('hero-vid');
     if (heroVid) {
         heroVid.muted = true;
         heroVid.volume = 0;
 
-        // Use IntersectionObserver to play when visible (Chrome desktop requires this)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    heroVid.muted = true;
-                    heroVid.play().catch(() => {});
-                } else {
-                    heroVid.pause();
-                }
-            });
-        }, { threshold: 0.1 });
-        observer.observe(heroVid);
+        function startVideo() {
+            heroVid.muted = true;
+            heroVid.play().then(() => {
+                heroVid.classList.add('playing');
+            }).catch(() => {});
+        }
 
-        // Also try immediately in case already visible
-        heroVid.play().catch(() => {});
+        // Play as soon as enough data is available
+        heroVid.addEventListener('canplay', startVideo, { once: true });
 
-        // Show tap-to-play overlay only if still paused after 800ms
-        setTimeout(() => {
-            if (heroVid.paused) {
-                const overlay = document.createElement('div');
-                overlay.id = 'vid-play-overlay';
-                overlay.innerHTML = '<div style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer"><svg viewBox="0 0 24 24" fill="white" width="28" height="28"><polygon points="6,3 20,12 6,21"/></svg></div>';
-                overlay.style.cssText = 'position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;';
-                heroVid.parentElement.appendChild(overlay);
-                overlay.addEventListener('click', () => {
-                    heroVid.muted = true;
-                    heroVid.play().then(() => overlay.remove()).catch(() => {});
-                }, { once: true });
-            }
-        }, 800);
+        // Also mark as playing if it's already going
+        heroVid.addEventListener('playing', () => {
+            heroVid.classList.add('playing');
+        });
+
+        // Try immediately (may already be ready)
+        startVideo();
     }
 
     // About section carousel

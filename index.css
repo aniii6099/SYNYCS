@@ -172,6 +172,24 @@ body {
     position: relative;
     overflow: hidden;
     isolation: isolate;
+    background: linear-gradient(135deg, #0a0c14 0%, #0f0a1e 40%, #0d1020 100%);
+}
+
+@keyframes hero-bg-shift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(135deg, #0f0a1e, #1a0d2e, #0a1428, #0d1020);
+    background-size: 400% 400%;
+    animation: hero-bg-shift 12s ease infinite;
+    opacity: 0.9;
 }
 
 .hero-content {
@@ -541,6 +559,12 @@ body {
     border: none;
     background: transparent;
     filter: saturate(1.05) contrast(1.05) brightness(0.82);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.hero-video.playing {
+    opacity: 1;
 }
 
 .hero-video-overlay {
