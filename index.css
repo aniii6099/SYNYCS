@@ -592,7 +592,7 @@ body {
 
 /* Partners Banner */
 .partners-section {
-    padding: 2.5rem 0;
+    padding: 2rem 0;
     background: #ffffff;
     border-top: 1px solid #e8e8e8;
     border-bottom: 1px solid #e8e8e8;
@@ -603,12 +603,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    max-width: 65%;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .partners-marquee {
     position: relative;
     overflow: hidden;
-    height: 88px;
+    height: 80px;
 }
 
 .partners-marquee::before,
@@ -655,13 +658,13 @@ body {
 }
 
 .partners-logo-item {
-    flex: 0 0 120px;
+    flex: 0 0 140px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    height: 48px;
-    opacity: 0.75;
+    width: 140px;
+    height: 64px;
+    opacity: 0.85;
     transition: opacity 0.25s;
     position: relative;
     flex-shrink: 0;
@@ -672,8 +675,8 @@ body {
 }
 
 .partners-logo-item img {
-    max-height: 38px;
-    max-width: 120px;
+    max-height: 54px;
+    max-width: 130px;
     object-fit: contain;
     width: auto;
     height: auto;
