@@ -178,14 +178,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Force hero video autoplay (Chrome fallback)
+    // Chrome-proof hero video autoplay
     const heroVid = document.getElementById('hero-vid');
     if (heroVid) {
+        // Set muted both as attribute and JS property — Chrome needs both
+        heroVid.setAttribute('muted', '');
         heroVid.muted = true;
-        heroVid.play().catch(() => {
-            document.addEventListener('click', () => heroVid.play(), { once: true });
-            document.addEventListener('touchstart', () => heroVid.play(), { once: true });
-        });
+        heroVid.volume = 0;
+
+        function attemptPlay() {
+            heroVid.muted = true;
+            heroVid.load();
+            heroVid.play().catch(() => {});
+        }
+
+        // Try immediately
+        attemptPlay();
+
+        // Also try once metadata is loaded
+        heroVid.addEventListener('loadedmetadata', attemptPlay, { once: true });
+
+        // Fallback: play on first user gesture if still paused
+        function onUserGesture() {
+            if (heroVid.paused) {
+                heroVid.muted = true;
+                heroVid.play().catch(() => {});
+            }
+        }
+        document.addEventListener('click', onUserGesture, { once: true });
+        document.addEventListener('touchstart', onUserGesture, { once: true });
+        document.addEventListener('keydown', onUserGesture, { once: true });
+        document.addEventListener('scroll', onUserGesture, { once: true });
     }
 
     // About section carousel
