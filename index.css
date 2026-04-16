@@ -464,13 +464,13 @@ body {
 .tech-section {
     padding: 6rem 5% 5rem;
     text-align: center;
-    background: #f5f7fb;
-    color: #0f172a;
+    background: linear-gradient(180deg, #0a0c14 0%, #0d1020 100%);
+    color: var(--text-primary);
 }
 
 .tech-section .section-title {
     margin-bottom: 3rem;
-    color: #0f172a;
+    color: var(--text-primary);
     text-align: center;
 }
 
@@ -483,8 +483,8 @@ body {
 }
 
 .tech-card {
-    background: #ffffff;
-    border: 1px solid #dbe6ff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     min-height: 118px;
     padding: 1rem;
     border-radius: 18px;
@@ -493,14 +493,16 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
 .tech-card:hover {
     transform: translateY(-4px);
-    border-color: #bfd0ff;
-    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(99, 102, 241, 0.45);
+    box-shadow: 0 18px 34px rgba(99, 102, 241, 0.15);
 }
 
 .tech-logo-wrap {
@@ -535,7 +537,7 @@ body {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.95rem;
-    color: #111827;
+    color: var(--text-primary);
     line-height: 1.15;
     text-align: center;
 }
