@@ -187,6 +187,110 @@ document.addEventListener('DOMContentLoaded', () => {
         heroVid.play().catch(() => {});
     }
 
+    // AI Programme phase tabs
+    const phaseData = [
+        {
+            kicker: 'Phase 1',
+            title: 'Strong Foundations',
+            time: 'Month 1',
+            summary: 'We build your core from the ground up so students begin with solid engineering thinking and technical confidence.',
+            points: [
+                'Python mastery and computational thinking',
+                'Mathematics for AI, including statistics and probability basics',
+                'AI fundamentals and model understanding',
+                'Modern development workflows with Git and AI coding tools'
+            ],
+            outcome: 'Outcome: You think like an engineer, not a beginner.'
+        },
+        {
+            kicker: 'Phase 2',
+            title: 'Core AI Engineering',
+            time: 'Month 1–4',
+            summary: 'This phase takes students into the core systems behind modern AI model building and training.',
+            points: [
+                'Machine Learning and Deep Learning',
+                'Transformers and Large Language Models',
+                'Generative AI systems',
+                'Data handling and feature engineering'
+            ],
+            outcome: 'Outcome: You can build and train real AI models.'
+        },
+        {
+            kicker: 'Phase 3',
+            title: 'Real-World AI Systems',
+            time: 'Month 4–6',
+            summary: 'Students move from models to applied systems that solve real business and product problems.',
+            points: [
+                'Solve real business problems using AI',
+                'Build end-to-end AI applications',
+                'Work on industry-level projects and simulations',
+                'Learn system design and deployment thinking'
+            ],
+            outcome: 'Outcome: You build production-ready AI systems.'
+        },
+        {
+            kicker: 'Phase 4',
+            title: 'Placement & Career Launch',
+            time: 'Month 6',
+            summary: 'Students package what they have built into a profile that is ready for interviews and hiring conversations.',
+            points: [
+                'Portfolio-ready GitHub projects',
+                'Resume and interview preparation',
+                'Dedicated placement support',
+                'Access to hiring network'
+            ],
+            outcome: 'Outcome: Step into roles such as AI Engineer, GenAI Developer, and Data Scientist.'
+        },
+        {
+            kicker: 'Phase 5',
+            title: 'Career Growth',
+            time: '6–12 Months',
+            summary: 'The roadmap continues after placement with advanced modules, mentorship, and guided growth.',
+            points: [
+                'Advanced AI modules',
+                'Mentorship from industry experts',
+                'Performance and promotion guidance'
+            ],
+            outcome: 'Outcome: Faster career growth and higher salary potential.'
+        },
+        {
+            kicker: 'Phase 6',
+            title: 'AI Scientist Track',
+            time: '12–24 Months',
+            summary: 'For learners who want to move beyond jobs and grow toward advanced research and innovation roles.',
+            points: [
+                'Advanced LLMs and multi-agent systems',
+                'Scalable AI architecture',
+                'Research methodologies',
+                'Paper writing and innovation projects'
+            ],
+            outcome: 'Outcome: Transition into AI Research Scientist roles.'
+        }
+    ];
+
+    const aiTabs = document.querySelectorAll('.ai-tab');
+    if (aiTabs.length) {
+        function updatePhaseDetail(index) {
+            const p = phaseData[index];
+            document.getElementById('phase-kicker').textContent = p.kicker;
+            document.getElementById('phase-title').textContent = p.title;
+            document.getElementById('phase-time').textContent = p.time;
+            document.getElementById('phase-summary').textContent = p.summary;
+            document.getElementById('phase-outcome').textContent = p.outcome;
+            const pointsList = document.getElementById('phase-points');
+            pointsList.innerHTML = p.points.map(pt => `<li>${pt}</li>`).join('');
+        }
+
+        aiTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                aiTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                updatePhaseDetail(parseInt(tab.dataset.phase, 10));
+            });
+        });
+    }
+
     // About section carousel
     const track = document.getElementById('carousel-track');
     const dotsContainer = document.getElementById('carousel-dots');

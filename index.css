@@ -1066,6 +1066,196 @@ body {
     line-height: 1.7;
 }
 
+/* AI Scientist Programme Section */
+.ai-programme-section {
+    padding: 5rem 5%;
+    background: linear-gradient(180deg, #0d1020 0%, #0a0c14 100%);
+}
+
+.ai-programme-shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.ai-programme-header {
+    padding: 2rem 2rem 1.75rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    align-items: end;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.ai-programme-eyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #6366f1;
+    margin: 0 0 0.75rem;
+    font-weight: 700;
+    font-family: var(--font-body);
+}
+
+.ai-programme-heading {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.ai-programme-intro {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.ai-programme-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.ai-summary-card {
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 1rem 1.1rem;
+}
+
+.ai-summary-card strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    font-family: var(--font-heading);
+}
+
+.ai-summary-card span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.ai-programme-tabs {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.6rem;
+    padding: 1.5rem 2rem 0;
+}
+
+.ai-tab {
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    padding: 1rem 0.85rem;
+    cursor: pointer;
+    text-align: left;
+    min-height: 88px;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.ai-tab.active {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.35);
+    color: var(--text-primary);
+}
+
+.ai-tab:hover:not(.active) {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+}
+
+.ai-programme-detail {
+    margin: 1.25rem 2rem 2rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    overflow: hidden;
+}
+
+.detail-left {
+    padding: 1.75rem;
+    border-right: 1px solid var(--glass-border);
+}
+
+.detail-kicker {
+    margin: 0 0 0.6rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #6366f1;
+    font-weight: 700;
+    font-family: var(--font-body);
+}
+
+.detail-left h3 {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.detail-time {
+    margin: 0 0 1rem;
+    color: #a855f7;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.detail-summary {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.detail-right {
+    padding: 1.75rem;
+}
+
+.detail-points {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.7rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.detail-points li::marker {
+    color: #6366f1;
+}
+
+.detail-outcome {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 12px;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
 /* Career Opportunities Section */
 .careers-section {
     padding: 6rem 5% 5rem;
@@ -1718,5 +1908,27 @@ body {
     .about-tags span {
         font-size: 0.85rem;
         padding: 0.65rem 1rem;
+    }
+
+    .ai-programme-header,
+    .ai-programme-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-programme-tabs,
+    .ai-programme-summary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .detail-left {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+    }
+}
+
+@media (max-width: 720px) {
+    .ai-programme-tabs,
+    .ai-programme-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
