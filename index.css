@@ -1978,3 +1978,262 @@ body {
 .ai-programme-detail.phase-enter {
     animation: phaseEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* ── Admission Steps ─────────────────────────────────────── */
+.admission-steps-section {
+    padding: 5rem 5%;
+    background: linear-gradient(180deg, rgba(10,10,18,1), rgba(12,12,22,1));
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.admission-steps-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.admission-steps-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.steps-kicker { color: #22d3ee; }
+
+.admission-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+}
+
+.admission-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.25rem;
+}
+
+.step-number {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #22d3ee;
+    margin-bottom: 0.75rem;
+}
+
+.step-connector {
+    position: absolute;
+    top: 52px;
+    left: calc(50% + 28px);
+    right: calc(-50% + 28px);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(34,211,238,0.4), rgba(168,85,247,0.4));
+    z-index: 0;
+}
+
+.step-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(34,211,238,0.08);
+    border: 1px solid rgba(34,211,238,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.step-icon svg { width: 22px; height: 22px; stroke: #22d3ee; }
+
+.step-icon-final {
+    background: rgba(168,85,247,0.12);
+    border-color: rgba(168,85,247,0.35);
+}
+.step-icon-final svg { stroke: #a855f7; }
+
+.admission-step:hover .step-icon {
+    background: rgba(34,211,238,0.15);
+    border-color: rgba(34,211,238,0.5);
+}
+
+.step-body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.step-body p {
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .admission-steps-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .step-connector { display: none; }
+}
+
+@media (max-width: 480px) {
+    .admission-steps-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Form extras ─────────────────────────────────────────── */
+.form-privacy-note {
+    font-size: 0.8rem;
+    color: rgba(148,163,184,0.6);
+    margin-top: 0.4rem;
+    line-height: 1.5;
+}
+
+.req { color: #f87171; margin-left: 2px; }
+
+.msg-counter {
+    font-size: 0.78rem;
+    color: rgba(148,163,184,0.55);
+    text-align: right;
+    margin-top: 4px;
+}
+
+.terms-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.terms-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: #6366f1;
+    flex-shrink: 0;
+}
+
+.terms-link {
+    color: #22d3ee;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ── FAQ Section ─────────────────────────────────────────── */
+.faq-section {
+    padding: 6rem 5%;
+    background: linear-gradient(180deg, rgba(9,11,18,1), rgba(8,10,16,1));
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.faq-shell {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.faq-kicker { color: #a855f7; }
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.25rem 0;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: color 0.2s;
+}
+
+.faq-q::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a855f7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+
+.faq-q[aria-expanded="true"] { color: #a855f7; }
+.faq-q[aria-expanded="true"]::after { transform: rotate(180deg); }
+
+.faq-a {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-a.open {
+    max-height: 200px;
+    padding-bottom: 1.25rem;
+}
+
+.faq-a p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.faq-a strong { color: #e2e8f0; }
+
+.faq-cta {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(168,85,247,0.06);
+    border: 1px solid rgba(168,85,247,0.18);
+}
+
+.faq-cta p {
+    color: var(--text-secondary);
+    font-size: 0.97rem;
+    line-height: 1.7;
+}
+
+.faq-cta p:first-child { color: #fff; font-size: 1.05rem; margin-bottom: 0.3rem; }
+
+.faq-cta-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.7rem 2rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.faq-cta-btn:hover { opacity: 0.88; transform: translateY(-2px); }

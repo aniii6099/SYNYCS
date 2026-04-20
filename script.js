@@ -313,6 +313,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Message counter
+    const msgArea = document.getElementById('inq-message');
+    const msgCounter = document.getElementById('msg-counter');
+    if (msgArea && msgCounter) {
+        msgArea.addEventListener('input', () => {
+            msgCounter.textContent = `${msgArea.value.length}/300`;
+        });
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+            document.querySelectorAll('.faq-q').forEach(b => {
+                b.setAttribute('aria-expanded', 'false');
+                b.nextElementSibling.classList.remove('open');
+            });
+            if (!isOpen) {
+                btn.setAttribute('aria-expanded', 'true');
+                btn.nextElementSibling.classList.add('open');
+            }
+        });
+    });
+
     // About section carousel
     const track = document.getElementById('carousel-track');
     const dotsContainer = document.getElementById('carousel-dots');
