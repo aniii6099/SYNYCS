@@ -1973,3 +1973,41 @@ body {
     padding: 1.1rem 1.25rem 1.3rem;
     letter-spacing: 0.01em;
 }
+
+/* ── Phase icon ─────────────────────────────────────────── */
+.phase-icon-wrap {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(168,85,247,0.18), rgba(139,92,246,0.08));
+    border: 1px solid rgba(168,85,247,0.35);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#phase-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: #a855f7;
+}
+
+/* ── Phase panel transition ─────────────────────────────── */
+.ai-programme-detail {
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.ai-programme-detail.phase-exit {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+@keyframes phaseEnter {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.ai-programme-detail.phase-enter {
+    animation: phaseEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

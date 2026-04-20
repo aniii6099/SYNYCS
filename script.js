@@ -188,6 +188,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // AI Programme phase tabs
+    const phaseIcons = [
+        /* Phase 1 – code brackets */
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+        /* Phase 2 – CPU chip */
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>`,
+        /* Phase 3 – globe / real-world */
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
+        /* Phase 4 – briefcase */
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+        /* Phase 5 – trending up */
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>`,
+        /* Phase 6 – atom / scientist */
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"></path><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"></path></svg>`
+    ];
+
     const phaseData = [
         {
             kicker: 'Phase 1',
@@ -200,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'AI fundamentals and model understanding',
                 'Modern development workflows with Git and AI coding tools'
             ],
-            outcome: 'Outcome: You think like an engineer, not a beginner.'
+            outcome: 'Outcome: You think like an AI Scientist, not a beginner.'
         },
         {
             kicker: 'Phase 2',
@@ -271,14 +286,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const aiTabs = document.querySelectorAll('.ai-tab');
     if (aiTabs.length) {
         function updatePhaseDetail(index) {
-            const p = phaseData[index];
-            document.getElementById('phase-kicker').textContent = p.kicker;
-            document.getElementById('phase-title').textContent = p.title;
-            document.getElementById('phase-time').textContent = p.time;
-            document.getElementById('phase-summary').textContent = p.summary;
-            document.getElementById('phase-outcome').textContent = p.outcome;
-            const pointsList = document.getElementById('phase-points');
-            pointsList.innerHTML = p.points.map(pt => `<li>${pt}</li>`).join('');
+            const detail = document.getElementById('ai-programme-detail');
+            detail.classList.add('phase-exit');
+            setTimeout(() => {
+                const p = phaseData[index];
+                document.getElementById('phase-icon').innerHTML = phaseIcons[index];
+                document.getElementById('phase-kicker').textContent = p.kicker;
+                document.getElementById('phase-title').textContent = p.title;
+                document.getElementById('phase-time').textContent = p.time;
+                document.getElementById('phase-summary').textContent = p.summary;
+                document.getElementById('phase-outcome').textContent = p.outcome;
+                document.getElementById('phase-points').innerHTML = p.points.map(pt => `<li>${pt}</li>`).join('');
+                detail.classList.remove('phase-exit');
+                detail.classList.add('phase-enter');
+                setTimeout(() => detail.classList.remove('phase-enter'), 400);
+            }, 180);
         }
 
         aiTabs.forEach(tab => {
